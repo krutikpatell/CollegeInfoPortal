@@ -1,0 +1,31 @@
+@model IEnumerable<CollegeInfoPortal.Models.Department>
+@{
+    ViewData["Title"] = "Departments";
+}
+<h2>Departments</h2>
+<p><a class="btn btn-primary" href="/Departments/Create">Create New</a></p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Head</th>
+            <th>Email</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach(var d in Model) {
+    <tr>
+        <td>@d.Name</td>
+        <td>@d.Head</td>
+        <td>@d.Email</td>
+        <td>
+            <a class="btn btn-sm btn-secondary" href="/Departments/Edit/@d.DepartmentId">Edit</a>
+            <a class="btn btn-sm btn-danger" href="/Departments/Delete/@d.DepartmentId">Delete</a>
+        </td>
+    </tr>
+}
+    </tbody>
+</table>
+<p>Last visited: @ViewContext.HttpContext.Session.GetString("LastVisited")</p>
+<p>Last created department cookie: @ViewContext.HttpContext.Request.Cookies["LastDept"]</p>

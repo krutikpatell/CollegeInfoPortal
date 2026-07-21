@@ -1,0 +1,17 @@
+@{
+    ViewData["Title"] = "Home";
+}
+<div class="jumbotron">
+    <h1 class="display-5">@ViewData["Greeting"]</h1>
+    <p class="lead">@TempData["Welcome"]</p>
+    <p>Welcome to <strong>@ViewBag.CollegeName</strong> student and staff portal.</p>
+    <hr class="my-4" />
+    <p>Quick links:</p>
+    <div class="list-group">
+        <a class="list-group-item list-group-item-action" href="/Departments">Departments</a>
+        <a class="list-group-item list-group-item-action" href="/Courses">Courses</a>
+        <a class="list-group-item list-group-item-action" href="/Faculty">Faculty</a>
+        <a class="list-group-item list-group-item-action" href="/Students">Students</a>
+        <a class="list-group-item list-group-item-action" href="/Events">Events</a>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+@model IEnumerable<CollegeInfoPortal.Models.Faculty>
+@{
+    ViewData["Title"] = "Faculty";
+}
+<h2>Faculty</h2>
+<p><a class="btn btn-primary" href="/Faculty/Create">Create New</a></p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Designation</th>
+            <th>Email</th>
+            <th>Department</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach(var f in Model) {
+    <tr>
+        <td>@f.Name</td>
+        <td>@f.Designation</td>
+        <td>@f.Email</td>
+        <td>@f.Department?.Name</td>
+        <td>
+            <a class="btn btn-sm btn-secondary" href="/Faculty/Edit/@f.FacultyId">Edit</a>
+            <a class="btn btn-sm btn-danger" href="/Faculty/Delete/@f.FacultyId">Delete</a>
+        </td>
+    </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,30 @@
+@model CollegeInfoPortal.Models.Faculty
+@{
+    ViewData["Title"] = "Edit Faculty";
+}
+<h2>Edit Faculty</h2>
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="FacultyId" />
+    <div class="mb-3">
+        <label asp-for="Name" class="form-label"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Designation" class="form-label"></label>
+        <input asp-for="Designation" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="Email" class="form-label"></label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="DepartmentId" class="form-label"></label>
+        <select asp-for="DepartmentId" asp-items="@(ViewData["DepartmentId"] as SelectList)" class="form-select"></select>
+    </div>
+    <button class="btn btn-primary" type="submit">Save</button>
+</form>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
